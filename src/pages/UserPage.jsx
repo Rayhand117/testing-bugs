@@ -9,18 +9,20 @@ const API = "https://jsonplaceholder.typicode.com/todos";
 const UserPage = () => {
   const [todos, setTodos] = useState([]);
   // const navigate = useNavigate();
-  useEffect(() => async () => {
+  
     const getTodos = async () => {
       try {
         const response = await fetch(API);
         const data = await response.json();
         setTodos(data);
       } catch (error) {
-        
+        // 
       }
     }
-    getTodos();
-  }, []);
+
+    useEffect(() => {
+      getTodos();
+    }, [])
 
   return (
     <div>
